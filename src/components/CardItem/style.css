@@ -4,9 +4,7 @@
   width: 200px;
   background-color:rgb(24, 24, 24);
   box-shadow: 5px 5px 10px 0px #000000;
-  
 }
-
 img {
   width: 200px;
   border-radius: 20px;
@@ -14,11 +12,10 @@ img {
 .title__cardList{
  margin: 20px 5px;
 }
-
 a {
   text-decoration: none;
   font-size: 20px;
-  color: rgb(255, 255, 255);
+  color: rgb(238, 238, 238);
   
 }
 p{

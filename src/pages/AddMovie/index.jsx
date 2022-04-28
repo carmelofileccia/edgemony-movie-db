@@ -14,7 +14,7 @@ function AddMovie() {
 
   return (
     <div className={styles.AddMovie}>
-      <h1>Add a new movie</h1>
+      <h1 className={styles.AddMovie__title}>Add a new movie.</h1>
       <CreateCardForm setModalVisibility={setModalVisibility} callType="POST" />
       <Modal
         text="Un nuovo film è stato aggiunto alla lista!"

@@ -1,7 +1,8 @@
 import { GET } from "../../utils/http";
 import { useState, useEffect } from "react";
 import CardItem from "../CardItem";
-import "./style.css";
+import styles from "./styles.module.scss";
+
 
 function CardList() {
   const [moviesData, setMoviesData] = useState([]);
@@ -11,9 +12,9 @@ function CardList() {
   }, []);
 
   return (
-    <div className="CardList">
-      <h1>Lista dei film</h1>
-      <div className="CardList__wrapper">
+    <div className={styles.CardList}>
+      <h1 className={styles.CardList__title}>Lista dei film</h1>
+      <div className={styles.CardList__wrapper}>
         {moviesData &&
           moviesData.map((movie) => (
             <CardItem cardData={movie} key={movie.id} />

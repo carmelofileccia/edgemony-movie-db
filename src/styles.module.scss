@@ -5,15 +5,15 @@
 }
 .App {
   
-}
-.App--navbar {
+
+  &__navbar {
     background-color: rgb(24, 24, 24);
     padding: 0 60px;
     height: 60px;
     
   }
   
-  .App--navbar ul {
+  &__ul {
     display: flex;
     justify-content: flex-end;
     line-height: 60px;
@@ -23,13 +23,23 @@
     font-size: 1.1rem;
   }
   
-  .App--navbar ul li {
+  &__li {
     cursor: pointer;
     display: flex;
     align-items: center;
+    
   }
   
-  .App--navbar a {
+  &__link{
+    font-size: 18px;
     text-decoration: none;
     color: white;
+    
+    
   }
+
+  &__link:hover{
+    transition: 0.3s;
+    color: #ee4e00;
+  }
+}

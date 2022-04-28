@@ -1,0 +1,37 @@
+.CardItem {
+  margin-top: 20px;
+  border-radius: 20px;
+  padding: 10px 30px;
+  width: 200px;
+  background-color:#f0f0f0;
+  box-shadow: 5px 5px 10px 0px #000000;
+
+  &__img {
+    width: 200px;
+    border-radius: 20px;
+  }
+  &__title{
+  margin: 20px 5px;
+  }
+  &__p{
+    color: white;
+    
+  }
+  &__ul {
+    justify-content: center;
+    display: inline;
+    list-style: none;
+    
+  }
+  &__genre{
+    width: 200px;
+    border-radius: 10px 0 0 10px;
+    padding: 10px;
+    background-color: white;
+    margin: 10px;
+    
+  }
+  &__desc{
+    font-size: 20px;
+  }
+}

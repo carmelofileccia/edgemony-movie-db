@@ -1,0 +1,16 @@
+.CardList {
+  &__title {
+    margin-bottom: 50px;
+        font-size: 60px;
+        
+        background-color: #f0f0f0;
+        padding:50px;
+  }
+  &__wrapper {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      
+    }
+  }

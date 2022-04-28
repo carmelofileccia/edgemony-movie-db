@@ -1,0 +1,15 @@
+.Modal {
+    position: fixed;
+    top: calc(110px);
+    left: calc(50% - 150px);
+    padding: 20px 80px;
+    background-color: aqua;
+    
+    max-width: 200px;
+    border-radius: 20px;
+
+    &__paragraph {
+        color:white;
+        font-size: 1.4rem;
+    }
+}

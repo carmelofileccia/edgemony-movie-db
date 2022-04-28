@@ -1,44 +1,46 @@
-import { useState, useEffect } from "react";
-import { POST } from "../../utils/http";
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
+import { POST, PUT } from "../../utils/http";
 import "./style.css";
 
-function CreateCardForm() {
+function CreateCardForm({ setModalVisibility, callType }) {
   const [title, setTitle] = useState("");
   const [year, setYear] = useState("");
   const [poster, setPoster] = useState("");
   const [genres, setGenres] = useState("");
   const [description, setDescription] = useState("");
-  
+
+  const location = useLocation();
+  const movieId = location.pathname.split("/").reverse()[0];
+
   const unStringifyGenres = (genres) => genres.split(",");
-
-
-  const [modalVisible, setModalVisible] = useState (false);
-  
-  useEffect(()=>{
-    setTimeout(function() {
-      setModalVisible(false)
-         }, 3000);
-       },
-   [])
-    const onClick =() => setModalVisible (true);  
-
 
   const addNewMovie = (e) => {
     e.preventDefault();
 
-    POST({
-      title,
-      year,
-      poster,
-      genres: unStringifyGenres(genres),
-      description,
-    });
+    if (callType === "POST") {
+      POST({
+        title,
+        year,
+        poster,
+        genres: unStringifyGenres(genres),
+        description,
+      });
+
+      setModalVisibility(true);
+    } else {
+      PUT(movieId, {
+        title,
+        year,
+        poster,
+        genres: unStringifyGenres(genres),
+        description,
+      });
+    }
   };
 
   return (
     <div className="CreateCardForm">
-      <h2>Create a new movie card</h2>
-
       <form onSubmit={addNewMovie} className="CreateCardForm__form">
         <label htmlFor="title">Title:</label>
         <input
@@ -90,16 +92,10 @@ function CreateCardForm() {
           required
         />
 
-        <input onClick={onClick} type="submit" value="Send it!" />
-        {modalVisible ? <Modal/> :null}
-
-        
+        <input type="submit" value="Send it!" />
       </form>
-    
-        
     </div>
   );
 }
 
-const Modal =() => <div id="divModal"> Movie Added!</div>
 export default CreateCardForm;

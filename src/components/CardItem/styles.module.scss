@@ -6,6 +6,16 @@
   background-color:#f0f0f0;
   box-shadow: 5px 5px 10px 0px #000000;
 
+  &__btn{
+    
+    font-size: 20px;
+    padding: 5px;
+    cursor: poiter;
+  }
+
+  &__btn:hover{
+    font-size: 25px;
+  }
   &__img {
     width: 200px;
     border-radius: 20px;

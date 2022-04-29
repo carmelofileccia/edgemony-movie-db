@@ -16,6 +16,7 @@ const POST = (body) =>
 // DELETE
 const DELETE = (id) => fetch(`${BASE_URL}/${id}`, { method: "DELETE" });
 
+
 // PUT
 const PUT = (id, body) =>
   fetch(`${BASE_URL}/${id}`, {

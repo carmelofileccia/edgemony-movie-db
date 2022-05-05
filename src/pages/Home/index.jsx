@@ -2,11 +2,8 @@ import {useState} from 'react';
 import CardList from "../../components/CardList";
 import styles from "./styles.module.scss"
 
-
-
 function Home() {
   const [searchInput, setSearchInput] = useState ("");
-
 
   return (
     <div className={styles.home}>

@@ -14,7 +14,7 @@ const POST = (body) =>
   });
 
 // DELETE
-const DELETE = (id) => fetch(`${BASE_URL}/${id}`, { method: "DELETE" });
+const DELETE = async (id) => await fetch(`${BASE_URL}/${id}`, { method: "DELETE" });
 
 
 // PUT

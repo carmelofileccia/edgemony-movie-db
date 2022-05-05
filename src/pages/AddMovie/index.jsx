@@ -1,25 +1,21 @@
-import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import CreateCardForm from "./../../components/CreateCardForm";
-import Modal from "./../../components/Modal";
 import styles from "./styles.module.scss";
 
-function AddMovie() {
-  const [isModalVisibile, setModalVisibility] = useState(false);
+function AddMovie(props) {
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    setTimeout(() => {
-      setModalVisibility(false);
-    }, 3000);
-  }, [isModalVisibile]);
+  const submitComplete = () => {
+    props.addSucces();
+    navigate("/");
+    
+  };
 
   return (
     <div className={styles.AddMovie}>
       <h1 className={styles.AddMovie__title}>Add a new movie.</h1>
-      <CreateCardForm setModalVisibility={setModalVisibility} callType="POST" />
-      <Modal
-        text="Un nuovo film è stato aggiunto alla lista!"
-        isVisibile={isModalVisibile}
-      />
+      <CreateCardForm compCallBack={submitComplete} callType="POST" />
+      
     </div>
   );
 }

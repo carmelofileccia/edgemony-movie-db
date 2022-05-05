@@ -8,13 +8,18 @@
 
   &__btn{
     
-    font-size: 20px;
-    padding: 5px;
-    cursor: poiter;
+    
+    top: 5px;
+    right: 5px;
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
   }
 
   &__btn:hover{
-    font-size: 25px;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    transition: all 0.35;
   }
   &__img {
     width: 200px;
@@ -22,6 +27,14 @@
   }
   &__title{
   margin: 20px 5px;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  a:hover {
+    
+    text-decoration: underline;
   }
   &__p{
     color: white;

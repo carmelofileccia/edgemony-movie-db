@@ -4,7 +4,7 @@ import { POST, PUT } from "../../utils/http";
 import styles from "./styles.module.scss";
 
 
-function CreateCardForm({ setModalVisibility, callType }) {
+function CreateCardForm({callType, compCallBack, compPut }) {
   const [title, setTitle] = useState("");
   const [year, setYear] = useState("");
   const [poster, setPoster] = useState("");
@@ -16,11 +16,21 @@ function CreateCardForm({ setModalVisibility, callType }) {
 
   const unStringifyGenres = (genres) => genres.split(",");
 
-  const addNewMovie = (e) => {
+  const addNewMovie = async (e) => {
     e.preventDefault();
 
     if (callType === "POST") {
-      POST({
+      await POST({
+        title,
+        year,
+        poster,
+        genres: unStringifyGenres(genres),
+        description,
+      });
+       compCallBack();
+     
+    } else {
+      await PUT(movieId, {
         title,
         year,
         poster,
@@ -28,15 +38,7 @@ function CreateCardForm({ setModalVisibility, callType }) {
         description,
       });
 
-      setModalVisibility(true);
-    } else {
-      PUT(movieId, {
-        title,
-        year,
-        poster,
-        genres: unStringifyGenres(genres),
-        description,
-      });
+      compPut();
     }
   };
 
@@ -51,6 +53,7 @@ function CreateCardForm({ setModalVisibility, callType }) {
           type="text"
           id="title"
           name="title"
+          placeholder="Titolo Film"
           required
         />
 
@@ -62,6 +65,7 @@ function CreateCardForm({ setModalVisibility, callType }) {
           type="text"
           id="year"
           name="year"
+          placeholder="Anno"
           required
         />
 
@@ -73,6 +77,7 @@ function CreateCardForm({ setModalVisibility, callType }) {
           type="text"
           id="poster"
           name="poster"
+          placeholder="Poster Film"
           required
         />
 
@@ -98,7 +103,7 @@ function CreateCardForm({ setModalVisibility, callType }) {
           required
         />
 
-        <input className={styles.CreateCardForm__inputSub} type="submit" value="Send it!" />
+        <input className={styles.CreateCardForm__inputSub} type="submit" value="Conferma Modifica" />
       </form>
     </div>
   );

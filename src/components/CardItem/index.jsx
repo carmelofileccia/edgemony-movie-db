@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {DELETE} from "../../utils/http";
 import styles from "./styles.module.scss";
 
 
-function CardItem({ cardData }) {
+function CardItem({ cardData}) {
+  
+
   const onCardDelete =() => {
     DELETE(cardData.id).then((data) => window.location.reload("/"));
   }
@@ -13,7 +16,7 @@ function CardItem({ cardData }) {
       <Link className={styles.CardItem__link}to={`/edit-movie/${cardData.id}`}>
         <h2 className={styles.CardItem__title}>{cardData.title}</h2>
       </Link>
-      <button onClick={onCardDelete} className={styles.CardItem__btn}>Delete</button>
+        
       <p className={styles.CardItem__year}>{cardData.year}</p>
       <img className={styles.CardItem__img} src={cardData.poster} alt={cardData.title} />
       <p className={styles.CardItem__desc}>{cardData.description}</p>
@@ -23,6 +26,7 @@ function CardItem({ cardData }) {
             cardData.genres.map((genre, i) => <li key={i} className={styles.CardItem__genre}>{genre}</li> )}
         </ul>
       </div>
+      <button onClick={onCardDelete} className={styles.CardItem__btn}>✖️</button>   
     </div>
   );
 }
